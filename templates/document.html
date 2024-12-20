@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h3 class="my-2" style="color: #0056b3;">
+        <a href="/" class="back-icon">
+            <i class="bi bi-chevron-left" style="font-size: 22px;"></i>
+        </a>
+        {{ chapter }}
+    </h3>
+    <h1 class="text-center mb-4">{{ title }}</h2>
+    
+    <div class="content-wrapper">
+        <div class="content">
+            <p>{{ content | safe }}</p>
+        </div>
+        <a href="/structure-guided-browsing" class="back-link">Back to Home</a>
+    </div>
+</div>
+
+{% endblock %}

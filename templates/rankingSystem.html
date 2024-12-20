@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ title }}</h2>
+<p>{{ description }}</p>
+<form>
+    <div class="mb-3">
+        <label for="fuzzyInput" class="form-label">Enter Fuzzy Query:</label>
+        <input type="text" class="form-control" id="fuzzyInput" placeholder="e.g., fuzzy term">
+    </div>
+    <button type="submit" class="btn btn-success">Run Query</button>
+</form>
+{% endblock %}

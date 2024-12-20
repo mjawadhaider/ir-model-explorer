@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ title }}</h2>
+<!-- <form>
+    <div class="mb-3">
+        <label for="lsiInput" class="form-label">Enter LSI Query:</label>
+        <input type="text" class="form-control" id="lsiInput" placeholder="e.g., latent semantic terms">
+    </div>
+    <button type="submit" class="btn btn-success">Run Query</button>
+</form> -->
+
+<div class="container">
+    <h1 class="text-center mb-4">Famous Landmarks Around the World</h1>
+    
+    <div class="category-list">
+        {% for category, subcategory in browsingStructure.items() %}
+            <div class="category-item">
+                <h2>
+                    <!-- Category name will be sanitized to create valid ID -->
+                    <a
+                        class="d-block toggle-icon"
+                        data-bs-toggle="collapse"
+                        href="#{{ category | replace(' ', '_') }}-collapse"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="{{ category | replace(' ', '_') }}-collapse"
+                    >
+                        {{ category }}
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                </h2>
+                <div class="collapse" id="{{ category | replace(' ', '_') }}-collapse">
+                    <ul class="doc-list">
+                        {% for subcategory_name, subcategory_content in subcategory.items() %}
+                            <li><a href="{{ url_for('document', doc_path=category + '/' + subcategory_name) }}">{{ subcategory_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

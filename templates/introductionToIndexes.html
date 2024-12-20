@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ title }}</h2>
+<p>{{ description }}</p>
+<form>
+    <div class="mb-3">
+        <label for="queryInput" class="form-label">Enter Boolean Query:</label>
+        <input type="text" class="form-control" id="queryInput" placeholder="e.g., term1 AND term2">
+    </div>
+    <button type="submit" class="btn btn-success">Run Query</button>
+</form>
+{% endblock %}

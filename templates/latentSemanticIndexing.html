@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ title }}</h2>
+<p>{{ description }}</p>
+<!-- Query Form -->
+<form method="POST">
+    <div class="mb-3">
+        <label for="queryInput" class="form-label">Enter Query:</label>
+        <input
+            type="text"
+            class="form-control"
+            id="queryInput"
+            name="query"
+            placeholder="e.g., climate change, artificial intelligence"
+            value="{{ query }}"
+        >
+    </div>
+    <button type="submit" class="btn btn-success">Run Query</button>
+</form>
+
+<!-- Display Results -->
+{% if results %}
+    <div class="mt-4">
+        <h4>Search Results:</h4>
+        <ul>
+            {% for res in results %}
+                <li><strong>{{ res }}</strong></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% elif query %}
+    <p>No results found for query: <strong>{{ query }}</strong></p>
+{% endif %}
+
+{% endblock %}
